@@ -115,21 +115,65 @@
     </section>
   </main>
 
-  <div class="modal-backdrop" id="loginModal" hidden>
+   <div class="modal-backdrop" id="loginModal" hidden>
     <section class="login-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
       <button class="modal-close" id="closeLoginModal" type="button" aria-label="Close login">×</button>
-      <span class="eyebrow">Welcome to Life Bridge</span>
-      <h2 id="loginTitle">Log in to continue</h2>
-      <p>Enter your details to continue to messaging. This is a front-end demo login; it does not verify your identity.</p>
-      <form id="loginForm" class="login-form">
-        <div class="field"><label for="loginName">Full name</label><input id="loginName" name="loginName" autocomplete="name" required placeholder="Your full name"></div>
-        <div class="field"><label for="loginEmail">Email address</label><input id="loginEmail" name="loginEmail" type="email" autocomplete="email" required placeholder="you@example.com"></div>
-        <div class="field"><label for="loginPhone">Mobile number</label><input id="loginPhone" name="loginPhone" type="tel" autocomplete="tel-national" inputmode="numeric" pattern="[6-9][0-9]{9}" minlength="10" maxlength="10" title="Enter a valid 10-digit Indian mobile number" required placeholder="10-digit mobile number"></div>
-        <button class="btn btn-primary" type="submit">Continue</button>
-        <p class="form-message" id="loginMessage" aria-live="polite"></p>
-      </form>
-    </section>
+
+
+  <span class="eyebrow">Welcome to Life Bridge</span>
+  <h2 id="loginTitle">Log in to continue</h2>
+  <p>Enter your registered mobile number to receive a verification OTP.</p>
+
+  <form id="loginForm" class="login-form">
+    <div class="field">
+      <label for="loginPhone">Mobile number</label>
+      <input
+        id="loginPhone"
+        name="loginPhone"
+        type="tel"
+        autocomplete="tel-national"
+        inputmode="numeric"
+        pattern="[6-9][0-9]{9}"
+        minlength="10"
+        maxlength="10"
+        title="Enter a valid 10-digit Indian mobile number"
+        required
+        placeholder="10-digit mobile number"
+      >
+    </div>
+
+    <button class="btn btn-primary" id="requestOtpButton" type="submit">
+      Get OTP
+    </button>
+
+    <div id="otpSection" hidden>
+      <div class="field">
+        <label for="loginOTP">Verification OTP</label>
+        <input
+          id="loginOTP"
+          name="loginOTP"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          pattern="[0-9]{6}"
+          minlength="6"
+          maxlength="6"
+          placeholder="Enter 6-digit OTP"
+        >
+      </div>
+
+      <button class="btn btn-primary" id="verifyOtpButton" type="button">
+        Verify OTP
+      </button>
+    </div>
+
+    <p class="form-message" id="loginMessage" aria-live="polite"></p>
+  </form>
+</section>
+
+
   </div>
+
 
   <footer>
     <div class="container footer-inner">
